@@ -1,8 +1,11 @@
 # [Trabalho 2] My Pinterest
 
 **Alunos**: Beatriz Auer Mariano e Mateus Maioli Giacomin
+
 **Disciplina**: Estrutura de Dados
+
 **Professor**: Thiago Meireles Paixão
+
 **Semestre**: 2023/1 - 3º período
 
 ## Introdução
