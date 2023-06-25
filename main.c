@@ -19,7 +19,7 @@ List* loadLocalities() {
     while(!feof(f)) {
         fgets(line, 25, f);
         char* localityName = strdup(line);
-        localityName[strcspn(localityName, "\n")] = '\0'; // remove '\n' font: chatGPT
+        localityName[strcspn(localityName, "\n")] = '\0'; // remove '\n' source: chatGPT
 
         Locality* locality = createLocality(localityName);
         appendList(localities, locality, LOCALITY);

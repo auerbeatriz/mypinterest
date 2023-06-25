@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 #ifndef IMAGE_H
 #define IMAGE_H
 
@@ -24,12 +23,13 @@ Image* readImage(char* fpath);
 */
 void printImageContent(Image* img);
 
+/*
+ * Print the dimensions of the image
+*/
 void printImageDimenstions(Image* img);
 
-/**PRIVATE FUNCTION */
+/**PRIVATE FUNCTIONS */
 void _readImageContent(Image* image, FILE* pgm);
-
-/**PRIVATE FUNCTION */
 Image* _initializeImage(FILE* pgm);
 
 #endif
