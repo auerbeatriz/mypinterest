@@ -17,12 +17,15 @@ typedef struct image Image;
 */
 Image* readImage(char *fpath);
 
-void _readImageContent(Image* image, FILE* pgm);
-Image* _initializeImage(FILE* pgm);
-
 /*
  * Print the content of the image
 */
 void printImageContent(Image *img);
+
+/**PRIVATE FUNCTION */
+void _readImageContent(Image* image, FILE* pgm);
+
+/**PRIVATE FUNCTION */
+Image* _initializeImage(FILE* pgm);
 
 #endif

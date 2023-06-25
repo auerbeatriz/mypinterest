@@ -4,44 +4,75 @@
 #include "list.h"
 
 struct list {
-
+    ListNode* first;
+    ListNode* last;
 };
 struct list_node {
-
+    Image* image;
+    ListNode* next;
+    ListNode* previous;
 };
 
-/*
-* Initializes an empty list
-*/
-List* create_list();
+List* createList() {
+    List* list = (List*) malloc(sizeof(List));
+    list->first = NULL;
+    list->last = NULL;
 
-/*
-* Inserts an image at the beggiing of the list
-*/
-void push_list(List* list, Image* img);
+    return list;
+}
 
-/*
-* Inserts an image at the end of the list
-*/
-void append_list(List* list, Image* img);
+void insertList(List* list, Image* img) {
+    ListNode* imgListNode = (ListNode*) malloc(sizeof(ListNode));
+
+    imgListNode->previous = NULL;
+    imgListNode->next = list->first;
+
+    if(is_empty_list(list)) {
+       _setFirstElementInList(list, imgListNode);
+    }
+    else {
+        list->first->previous = imgListNode;
+        list->first = imgListNode;
+    }
+}
+
+
+void appendList(List* list, Image* img) {
+    ListNode* imgListNode = (ListNode*) malloc(sizeof(ListNode));
+    
+    imgListNode->next = NULL;
+    imgListNode->previous = list->last;
+    if(is_empty_list(list)) {
+        _setFirstElementInList(list, imgListNode);
+    }
+    else {
+        list->last->next = imgListNode;
+        list->last = imgListNode;
+    }
+}
+
+void _setFirstElementInList(List* list, ListNode* listNode) {
+    list->first = listNode;
+    list->last = listNode;
+}
 
 /*
 * Remove and return the last element on the list
 */
-Image* pop_list(List* list);
+Image* popList(List* list);
 
 /*
 * Remove a specific element of the list
 */
-Image* remove_list(List* list, Image* img);
+Image* removeList(List* list, Image* img);
 
 /*
 * Returns true/false if the list has any element on it
 */
-bool is_empty_list(List* list);
+bool is_emptyList(List* list);
 
 /*
 * Remove all the elements of the list and dealocate it
 ! The given list can not be used anymore after this action !
 */
-void clear_list(List* list);
+void clearList(List* list);
