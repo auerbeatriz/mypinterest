@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 #ifndef IMAGE_H
 #define IMAGE_H
@@ -15,12 +17,14 @@ typedef struct image Image;
 /*
  * Read the content of a PGM file and return it as an Image
 */
-Image* readImage(char *fpath);
+Image* readImage(char* fpath);
 
 /*
  * Print the content of the image
 */
-void printImageContent(Image *img);
+void printImageContent(Image* img);
+
+void printImageDimenstions(Image* img);
 
 /**PRIVATE FUNCTION */
 void _readImageContent(Image* image, FILE* pgm);

@@ -66,12 +66,14 @@ void _readImageContent(Image* image, FILE* pgm) {
 }
 
 void printImageContent(Image* img) {
-    printf("%d %d\n", img->width, img->height);
-
     for(int i = 0; i < img->height; i ++) {
         for(int j = 0; j < img->width; j ++) {
             printf("%u ", img->content[i][j]);
         }
         printf("\n");
     }
+}
+
+void printImageDimenstions(Image* img) {
+    printf("Dimensoes: %d %d\n", img->width, img->height);
 }

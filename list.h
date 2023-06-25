@@ -1,11 +1,15 @@
 #include <stdbool.h>
+
 #include "image.h"
+#include "locality.h"
 
 #ifndef LIST_H
 #define LIST_H
 
 typedef struct list List;
 typedef struct list_node ListNode;
+typedef void (*CallbackFunction)(Locality*);
+typedef enum {IMAGE, LOCALITY} ElementType;
 
 /*
 * Initializes an empty list
@@ -15,34 +19,47 @@ List* createList();
 /*
 * Inserts an image at the beggiing of the list
 */
-void insertList(List* list, Image* img);
+void insertList(List* list, void* element, ElementType type);
 
 /*
 * Inserts an image at the end of the list
 */
-void appendList(List* list, Image* img);
-
+void appendList(List* list, void* element, ElementType type);
 
 /*
 * Remove and return the last element on the list
 */
-Image* popList(List* list);
+void* popList(List* list);
 
 /*
 * Remove a specific element of the list
 */
-Image* removeList(List* list, Image* img);
+void removeFromList(List* list, void* element);
 
 /*
 * Returns true/false if the list has any element on it
 */
-bool is_emptyList(List* list);
+bool isEmptyList(List* list);
 
 /*
 * Remove all the elements of the list and dealocate it
 ! The given list can not be used anymore after this action !
 */
 void clearList(List* list);
+
+/**
+ * Prints all the elements of a given list
+*/
+void printListElements(List* list);
+
+/**
+ * ? Verifys if an image is in the list
+*/
+bool isInList(List* list, void* element);
+
+void printFirstElement(List* list);
+
+void execute(List* list, CallbackFunction callback);
 
 /**PRIVATE*/
 void _setFirstElementInList(List* list, ListNode* listNode);
