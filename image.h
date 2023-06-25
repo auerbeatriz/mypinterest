@@ -4,15 +4,16 @@
 #define EMPTY_FLAG -10000000
 
 /**
- * PGM Image Structure
+ * PGM Image Structure:
+ * int wight, height, max_gray_level
+ * uc content (pixel matrix)
 */
 typedef struct image Image;
 
 /*
- * It get the content of an image and save it returns in an Image type
+ * Read the content of a PGM file and return it as an Image
 */
 Image* readImage(char *fpath);
-
 
 /*
  * Print the content of the image
