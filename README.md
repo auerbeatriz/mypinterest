@@ -20,7 +20,7 @@ Foram selecionados 10 ambientes do Ifes Campus Serra para representar a nossa ba
 
 [!WARNING] para cada nova localidade que não são as de origem do trabalho que for adicionada, é preciso criar as pastas correspondentes e adicionar as imagens PGM, pois o programa não faz isso sozinho.
 
-As imagen estão armazenas dentro de `base/pgm/` e divididas por localidade. O diretório base possui, ainda, uma subpasta `histogram_extractor`. A pasta histogram_extractor possui um arquivo `index` que correlaciona o caminho de cada imagem de cada localidade ao seu respectivo descritor e várias outras subspastas, uma para cada localidade, que possuem os arquivos com os descritores das imagens, em si. Dentro de base há um arquivo `convert_to_pgm.py`, que foi adaptado do código dado pelo professor para converter as imagens de `base/img/` em pgm.
+As imagens estão armazenadas dentro de `base/pgm/` e divididas por localidade. O diretório base possui, ainda, uma subpasta `histogram_extractor`. A pasta histogram_extractor possui um arquivo `index` que correlaciona o caminho de cada imagem de cada localidade ao seu respectivo descritor e várias outras subspastas, uma para cada localidade, que possuem os arquivos com os descritores das imagens, em si. Dentro de base há um arquivo `convert_to_pgm.py`, que foi adaptado do código dado pelo professor para converter as imagens de `base/img/` em pgm.
 
 
 [!NOTE] a estrutura de pastas foi adaptada da documentação para melhor atender à nossa implementação (e também para ser melhor da gente entender).
@@ -35,19 +35,27 @@ Todas as estruturas abaixo foram implementadas utilizando o conceito de TADs.
 Consiste na abstração de uma estrutura de dados que define um conjunto de operações permitidas em seus objetos, ocultando os detalhes de implementação e fornecendo uma interface clara para manipular e acessar os dados.<br>
 As estruturas foram implementadas, portanto, utilizando um cabeçalho **.h** e implementação **.c**.
 
+As localidades selecionadas estão armazenadas em uma lista encadeada do tipo Locality. Cada Locality, por sua vez, tem sua própria lista encadeada como "atributo" que armazena as imagens do tipo Image.
+
+![Estrutura](doc/structure.png)
+
 ### List
 
 Lista encadeada genérica. Nesse tipo de estrutura de dados, cada elemento de uma lista, chamado de **nó** possui um ponteiro de referência para o próximo nó da lista. Nesse caso, como a lista é genérica, o nó pode ser um ponteiro para qualquer tipo, como Locality, Image, char, int, etc.
+
+Implementação: ```list.h list.c```
 
 ### Locality
 
 Estrutura que armazena todas as imagens de uma determinada localidade, em forma de uma lista encadeada. Possui dois atributos: name, nome da localidade, e images, que é a lista de imagens do local.
 
-[!NOTE] As localidades selecionadas estão armazenadas em uma lista encadeada do tipo Locality. Cada Locality, por sua vez, tem sua própria lista encadeada como "atributo" que armazena as imagens do tipo Image.
+Implementação: ```locality.h locality.c```
 
 ### Image
 
 Image: estrutura que armazena o conteudo das imagens PGM, como altura, largura, nível máximo de cinza e a matriz dos pixels da imagem. A matriz de pixels da imagem consiste em um vetor de vetores do tipo *unsigned char*.
+
+Implementação: ```image.h image.c```
 
 ## Fluxo
 1. Inicializa as localidades do banco de dados, que são listadas no arquivo localities.txt. As localidades são carregadas par dentro da List localities.
