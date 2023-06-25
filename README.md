@@ -10,7 +10,7 @@
 O objetivo do trabalho é desenvolver um projeto em C que faça a recuperação de imagens correlacionadas a uma imagem de entrada, baseada em seu conteúdo (*Content-based Image Retrieval*, CBIR). Para isso, utilizou-se a técnica histogramas para realizar a extração de descritores de cada imagem. A extração de conteúdo baseado em histograma consiste na representação da frequência que um determinado valor ocorre: nesse caso, a frequência que um valor de cor de pixel é repetido na matriz de pixels de uma imagem.<br>
 Nesse trabalho, utilizou-se imagens no formato PGM em escala de cinza (valores de pixel de 0 a 255).
 
-Warning: Falar mais sobre o trabalho em si
+[!WARNING] Falar mais sobre o trabalho em si
 
 **Conteúdos relacionados:** implementação de TADs e listas encadeadas.
 
@@ -18,12 +18,12 @@ Warning: Falar mais sobre o trabalho em si
 
 Foram selecionados 10 ambientes do Ifes Campus Serra para representar a nossa base de dados. Cada localidade possui 10 fotos.
 
-Warning: para cada nova localidade que não são as de origem do trabalho que for adicionada, é preciso criar as pastas correspondentes e adicionar as imagens PGM, pois o programa não faz isso sozinho.
+[!WARNING] para cada nova localidade que não são as de origem do trabalho que for adicionada, é preciso criar as pastas correspondentes e adicionar as imagens PGM, pois o programa não faz isso sozinho.
 
-As imagen estão armazenas dentro de **base/pgm/** e divididas por localidade. O diretório base possui, ainda, uma subpasta **histogram_extractor**. A pasta histogram_extractor possui um arquivo index que correlaciona o caminho de cada imagem de cada localidade ao seu respectivo descritor e várias outras subspastas, uma para cada localidade, que possuem os arquivos com os descritores das imagens, em si. Dentro de base há um arquivo **convert_to_pgm.py**, que foi adaptado do código dado pelo professor para converter as imagens de base/img/ em pgm.
+As imagen estão armazenas dentro de `base/pgm/` e divididas por localidade. O diretório base possui, ainda, uma subpasta `histogram_extractor`. A pasta histogram_extractor possui um arquivo `index` que correlaciona o caminho de cada imagem de cada localidade ao seu respectivo descritor e várias outras subspastas, uma para cada localidade, que possuem os arquivos com os descritores das imagens, em si. Dentro de base há um arquivo `convert_to_pgm.py`, que foi adaptado do código dado pelo professor para converter as imagens de `base/img/` em pgm.
 
 
-Note: a estrutura de pastas foi adaptada da documentação para melhor atender à nossa implementação (e também para ser melhor da gente entender).
+[!NOTE] a estrutura de pastas foi adaptada da documentação para melhor atender à nossa implementação (e também para ser melhor da gente entender).
 
 ![Estrutura do diretório base](doc/base.png)
 
@@ -43,7 +43,7 @@ Lista encadeada genérica. Nesse tipo de estrutura de dados, cada elemento de um
 
 Estrutura que armazena todas as imagens de uma determinada localidade, em forma de uma lista encadeada. Possui dois atributos: name, nome da localidade, e images, que é a lista de imagens do local.
 
-Note: As localidades selecionadas estão armazenadas em uma lista encadeada do tipo Locality. Cada Locality, por sua vez, tem sua própria lista encadeada como "atributo" que armazena as imagens do tipo Image.
+[!NOTE] As localidades selecionadas estão armazenadas em uma lista encadeada do tipo Locality. Cada Locality, por sua vez, tem sua própria lista encadeada como "atributo" que armazena as imagens do tipo Image.
 
 ### Image
 
