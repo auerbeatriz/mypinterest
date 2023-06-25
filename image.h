@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 
 #ifndef IMAGE_H
 #define IMAGE_H
@@ -25,6 +25,12 @@ Image* readImage(char* fpath);
 void printImageContent(Image* img);
 
 void printImageDimenstions(Image* img);
+
+void saveHistogramToFile(int* histogram, const char* filename);
+
+void extractImageDescritor(Image* image);
+
+void printhistogram(int* histogram);
 
 /**PRIVATE FUNCTION */
 void _readImageContent(Image* image, FILE* pgm);

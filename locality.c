@@ -3,6 +3,7 @@
 
 #include "list.h"
 #include "locality.h"
+#include "utils.h"
 
 struct locality {
     char* name;
@@ -18,18 +19,24 @@ Locality* createLocality(char* name) {
 }
 
 void loadImages(Locality* locality){
-    // char sla[60] = "base/pgm/localityName/localityName (index).pgm";
     char image_path[60];
+    char hist_path[80];
 
     int i = 1;
     while(i <= 10) {
-        sprintf(image_path, "base/pgm/%s/%s (%d).pgm", locality->name, locality->name, i);
+        sprintf(image_path, "base/pgm/%s/%s (%d).pgm", locality->name, locality->name, i); //joins strings to create the image path. source: chatgpt
+        sprintf(hist_path, "base/histogram_extractor/%s/%s (%d).txt", locality->name, locality->name, i);
 
         Image* image = readImage(image_path);
         appendList(locality->images, image, IMAGE);
 
+        extractImageDescritor(image);
+        saveDataToFile(image_path, hist_path, locality->name, "base/histogram_extractor/index.txt");
+
         i++;
-    }
+    }  
+
+    printf("\n");
 }
 
 
