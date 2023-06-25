@@ -1,4 +1,4 @@
-# [Trabalho 2] My Pinterest
+# [Trabalho 2] My Pinterest | Beatriz Auer e Mateus Maioli
 
 **Alunos**: Beatriz Auer Mariano e Mateus Maioli Giacomin
 
