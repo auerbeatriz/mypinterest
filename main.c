@@ -1,8 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "image.c"
 
-
+#include "image.h"
 #include "list.h"
 
 int main(void) {
