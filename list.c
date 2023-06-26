@@ -59,19 +59,16 @@ void appendList(List* list, void* element, ElementType type) {
 }
 
 void* popList(List* list) {
-    ListNode* listNode = list->first;
+    ListNode* listNode = list->last;
     void* element = listNode->info;
 
-    list->first = list->first->next;
-    list->first->previous = NULL;
+    list->last = list->last->previous;
+    list->last->next = NULL;
     
     free(listNode);
     return element;
 }
 
-void removeFromList(List* list, void* element) {
-    // to be implemented
-}
 
 bool isEmptyList(List* list) {
     return (list->first == NULL);
@@ -100,6 +97,10 @@ void printFirstElement(List* list) {
         printhistogram(descriptor);
         printf("\n\n");
     }
+}
+
+void removeFromList(List* list, void* element) {
+    // to be implemented
 }
 
 bool isInList(List* list, void* element) {

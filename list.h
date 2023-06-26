@@ -8,22 +8,24 @@ typedef struct list_node ListNode;
 typedef enum {DESCRIPTOR, IMAGE} ElementType;
 
 /*
-* Initializes an empty list
+* Initializes an empty generic list
 */
 List* createList();
 
 /*
-* Inserts an image at the beggiing of the list
+* Inserts an element at the beggiing of the list
+* It could be of any type, as it is a generic list
 */
 void insertList(List* list, void* element, ElementType type);
 
 /*
-* Inserts an image at the end of the list
+* Inserts an element at the end of the list
+* It could be of any type, as it is a generic list
 */
 void appendList(List* list, void* element, ElementType type);
 
 /*
-* Remove and return the last element on the list
+* Remove and return the last element of the list
 */
 void* popList(List* list);
 
@@ -33,7 +35,7 @@ void* popList(List* list);
 void removeFromList(List* list, void* element);
 
 /*
-* Returns true/false if the list has any element on it
+* Return if the list has any element on it
 */
 bool isEmptyList(List* list);
 
@@ -44,12 +46,12 @@ bool isEmptyList(List* list);
 void clearList(List* list);
 
 /**
- * Prints all the elements of a given list
+ * Prints all the elements of the given list
 */
 void printListElements(List* list);
 
 /**
- * ? Verifys if an image is in the list
+ * ? Verifys if an element is on the list
 */
 bool isInList(List* list, void* element);
 
@@ -57,5 +59,6 @@ void printFirstElement(List* list);
 
 /**PRIVATE*/
 void _setFirstElementInList(List* list, ListNode* listNode);
+void printFirstElement(List* list);
 
 #endif

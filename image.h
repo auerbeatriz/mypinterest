@@ -30,13 +30,14 @@ unsigned char** getImageContent(Image* image);
 */
 void printImageContent(Image* img);
 
+/*
+ * Print the dimensions of the image
+*/
 void printImageDimenstions(Image* img);
 
 
 /**PRIVATE FUNCTION */
 void _readImageContent(Image* image, FILE* pgm);
-
-/**PRIVATE FUNCTION */
 Image* _initializeImage(FILE* pgm);
 
 #endif
