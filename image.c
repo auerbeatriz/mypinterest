@@ -1,12 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "image.h"
 
 struct image
 {
-    char path;
+    char* path;
     int width, height, max_gray_level;
     unsigned char** content;
 };
@@ -41,7 +42,7 @@ Image* readImage(char* fpath) {
         printf("Tipo de arquivo não suportado.\n");
     }
 
-    return EMPTY_FLAG;
+    return NULL;
 }
 
 Image* _initializeImage(FILE* pgm) {
@@ -59,11 +60,21 @@ Image* _initializeImage(FILE* pgm) {
 void _readImageContent(Image* image, FILE* pgm) {
     for(int i = 0; i < image->height; i++) {
         for(int j=0; j < image->width; j++) {
-            int valor;
             fscanf(pgm, "%hhu", &image->content[i][j]);
         }
     }
 }
+
+int getImageWidth(Image* image) {
+    return image->width;
+}
+int getImageHeight(Image* image) {
+    return image->height;
+}
+unsigned char** getImageContent(Image* image) {
+    return image->content;
+}
+
 
 void printImageContent(Image* img) {
     for(int i = 0; i < img->height; i ++) {

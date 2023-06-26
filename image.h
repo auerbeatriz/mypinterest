@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+#include "list.h"
 
 #ifndef IMAGE_H
 #define IMAGE_H
-
-#define EMPTY_FLAG -10000000
 
 /**
  * PGM Image Structure:
@@ -18,6 +19,12 @@ typedef struct image Image;
 */
 Image* readImage(char* fpath);
 
+void indexImageFromLocation(List* images, List* descriptors, char* location);
+
+int getImageWidth(Image* image);
+int getImageHeight(Image* image);
+unsigned char** getImageContent(Image* image);
+
 /*
  * Print the content of the image
 */
@@ -28,7 +35,8 @@ void printImageContent(Image* img);
 */
 void printImageDimenstions(Image* img);
 
-/**PRIVATE FUNCTIONS */
+
+/**PRIVATE FUNCTION */
 void _readImageContent(Image* image, FILE* pgm);
 Image* _initializeImage(FILE* pgm);
 
