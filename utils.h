@@ -11,6 +11,7 @@
 */
 void saveDataToFile(char* image_path, char* hist_path, char* locality_name, char* filepath);
 
+void showMenu();
 /**
  * Verify if a file alread has a certain data line
 */

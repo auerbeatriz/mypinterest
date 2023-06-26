@@ -1,6 +1,6 @@
 import cv2
 
-localities = ["biblioteca", "bloco3", "entrada"]
+localities = ["biblioteca", "bloco1", "bloco2", "bloco3", "bloco5", "bloco8", "bloco9", "refeitorio", "quadra", "entrada"]
 
 for locality in localities:
     i = 1

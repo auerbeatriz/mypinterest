@@ -7,7 +7,7 @@
 
 struct image
 {
-    char path;
+    char* path;
     int width, height, max_gray_level;
     unsigned char** content;
 };
@@ -42,7 +42,7 @@ Image* readImage(char* fpath) {
         printf("Tipo de arquivo não suportado.\n");
     }
 
-    return EMPTY_FLAG;
+    return NULL;
 }
 
 Image* _initializeImage(FILE* pgm) {
@@ -60,48 +60,21 @@ Image* _initializeImage(FILE* pgm) {
 void _readImageContent(Image* image, FILE* pgm) {
     for(int i = 0; i < image->height; i++) {
         for(int j=0; j < image->width; j++) {
-            int valor;
             fscanf(pgm, "%hhu", &image->content[i][j]);
         }
     }
 }
 
-void saveHistogramToFile(int* histogram, const char* filepath) {
-    FILE* file = fopen(filepath, "w");
-    if (file == NULL) {
-        printf("Erro ao abrir o arquivo %s.\n", filepath);
-        return;
-    }
-
-    for (int i = 0; i <= 255; i++) {
-        fprintf(file, "%d ", histogram[i]);
-    }
-
-    fclose(file);
+int getImageWidth(Image* image) {
+    return image->width;
+}
+int getImageHeight(Image* image) {
+    return image->height;
+}
+unsigned char** getImageContent(Image* image) {
+    return image->content;
 }
 
-void extractImageDescritor(Image* image) {
-    // initialize a histogram vector of 255 positions
-    int* histogram = malloc(256 * sizeof(int));
-    for (int i = 0; i < 256; i++) {
-        histogram[i] = 0;
-    }
-    
-    for (int i = 0; i < image->height; i++) {
-        for (int j = 0; j < image->width; j++) {
-            int v = (int)image->content[i][j];
-            histogram[v] = histogram[v] + 1;
-        }
-    }
-    
-    saveHistogramToFile(histogram, "histogram.txt");
-}
-
-void printhistogram(int* histogram){
-    for(int i = 0; i <= 255; i++){
-        printf("%d ", histogram[i]);
-    }
-}
 
 void printImageContent(Image* img) {
     for(int i = 0; i < img->height; i ++) {
