@@ -1,15 +1,11 @@
 #include <stdbool.h>
 
-#include "image.h"
-#include "locality.h"
-
 #ifndef LIST_H
 #define LIST_H
 
 typedef struct list List;
 typedef struct list_node ListNode;
-typedef void (*CallbackFunction)(Locality*);
-typedef enum {IMAGE, LOCALITY} ElementType;
+typedef enum {DESCRIPTOR, IMAGE} ElementType;
 
 /*
 * Initializes an empty list
@@ -58,8 +54,6 @@ void printListElements(List* list);
 bool isInList(List* list, void* element);
 
 void printFirstElement(List* list);
-
-void execute(List* list, CallbackFunction callback);
 
 /**PRIVATE*/
 void _setFirstElementInList(List* list, ListNode* listNode);

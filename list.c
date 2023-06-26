@@ -1,9 +1,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "image.h"
 #include "list.h"
-#include "locality.h"
+#include "image.h"
+#include "descriptor.h"
 
 struct list {
     ListNode* first;
@@ -87,25 +87,18 @@ void clearList(List* list) {
     free(list);
 }
 
-void printListElements(List* list) {
-    for (ListNode* p = list->first; p != NULL; p = p->next) {
-        if(p->type == LOCALITY) {
-            Locality* locality = (Locality*) p->info;
-            printf("%s", getLocalityName(locality));
-        }
-    }
-}
-
 void printFirstElement(List* list) {
-    Image* img = (Image*) list->first->info;
-    printImageContent(img);
-    printf("\n\n");
-}
+    ListNode* firstElement = list->first;
+    if(firstElement->type == IMAGE) {
+        Image* img = (Image*) list->first->info;
+        printImageContent(img);
+        printf("\n\n");
+    }
 
-void execute(List* list, CallbackFunction callback) {
-    for (ListNode* p = list->first; p != NULL; p = p->next) {
-        Locality* locality = (Locality*) p->info;
-        callback(locality);
+    if(firstElement->type == DESCRIPTOR) {
+        Descriptor* descriptor = firstElement->info;
+        printhistogram(descriptor);
+        printf("\n\n");
     }
 }
 
