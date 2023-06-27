@@ -7,6 +7,14 @@
 #include "descriptor.h"
 #include "utils.h"
 
+void showMenu() {
+    printf("╰☆╮✵٭ ✶ Ｍｙ Ｐｉｎｔｅｒｅｓｔ ✶ ٭✵╭★╯\n");
+    printf("Para rodar o programa, liste um dos comandos abaixo:\n");
+    printf("index [all | path]\n");
+    printf("query [location] [image_name]\n");
+    printf("quit\n\n");
+    printf("Se estiver em dúvida do que cada comando executa, consulte a documentação.\n\n");
+}
 
 void indexImageFromLocation(List* images, List* descriptors, char* location) {
     char image_path[60];
@@ -64,8 +72,8 @@ int main(void) {
     showMenu();
 
     char* input, command;
+    printf("> ");
     scanf(" %s", &input);
-
     while(strcmp(input, "quit") == 0) {
         command = strtok(input, " ");
 
@@ -82,6 +90,7 @@ int main(void) {
             // Descriptor* descriptor = extractImageDescritor(image, location, image_query_path, )
         }
 
+        printf("> ");
         scanf(" %s", &input);
     }
 

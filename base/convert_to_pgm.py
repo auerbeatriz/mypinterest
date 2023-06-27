@@ -1,5 +1,6 @@
 import cv2
 
+#put your new folder name here:
 localities = ["biblioteca", "bloco1", "bloco2", "bloco3", "bloco5", "bloco8", "bloco9", "refeitorio", "quadra", "entrada"]
 
 for locality in localities:
