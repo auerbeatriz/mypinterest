@@ -18,24 +18,18 @@ O programa carregará o menu uma vez, e após um comando finalizar sua execuçã
 
 ### Comandos
 
-```diff
-@@ index@@
-```
+`index`
 
 Carrega todas as imagens do banco de dados e seus respectivos descritores em listas encadeadas (images e descriptors, respectivamente). Também gera os arquivos que contêm os descritores de cada imagem, sob `base/histogram_extractor`.
 
 > **Warning**: Para novas imagens na base de dados, consultar a documentação da base de dados abaixo.
 
-```dif
-#Pensamos em excluir esse comando, uma vez que uma query só será executada quando houverem imagens indexadas, mas decidimos deixar por duas razões:
+Pensamos em excluir esse comando, uma vez que uma query só será executada quando houverem imagens indexadas, mas decidimos deixar por duas razões:
 
-# - Mesmo que o comando index fosse rodado, por baixo dos panos, toda vez que query fosse executado, isso consumiria desempenho computacional desnecessário para verificar que imagens que já foram indexadas antes foram indexadas
-# - Se as imagens foram indexadas apenas uma vez, o usuário não poderá indexar novas imagens em tempo de execução do programa
-```
+- Mesmo que o comando index fosse rodado, por baixo dos panos, toda vez que query fosse executado, isso consumiria desempenho computacional desnecessário para verificar que imagens que já foram indexadas antes foram indexadas
+- Se as imagens foram indexadas apenas uma vez, o usuário não poderá indexar novas imagens em tempo de execução do programa
 
-```diff
-@@ query [location] [image_file_name]@@
-```
+`query [location] [image_file_name]`
 
 Realiza a consulta das imagens e localidades mais parecidas, de acordo com seus descritores, da imagem passada como parâmetro.
 
@@ -44,15 +38,16 @@ Realiza a consulta das imagens e localidades mais parecidas, de acordo com seus 
 
 Um exemplo de uso correto do comando seria:
 
-\`query biblioteca query_biblioteca.pgm\`
+```diff
+query biblioteca query_biblioteca.pgm
+```
 
 > **Warning**: Assim como para o comando index, as imagens de consulta devem, obrigatoriamente, estar sob o diretório `query/pgm/`. Veja mais sobre a documentação da base de dados.
 
 O resultado das imagens mais próximas será carregada dentro dos arquivos padrão do diretório `results`. Já as localidades serão exibidas no terminal.
 
-```diff
-@@ quit@@
-```
+`quit`
+
 Encerra o programa.
 
 ## Base de dados
@@ -80,6 +75,7 @@ As estruturas foram implementadas, portanto, utilizando um cabeçalho **.h** e i
 
 Ao iniciar o programa, quand o usuário inserir o comando index, todas as imagens no formato PGM são carregadas em uma lista encadeada do tipo Images, e os seus descritores correspondentes são carregados em outra lista encadeada do tipo Descriptors.
 
+(A imagem abaixo é de uma lista encadeada simples, mas não altera o funcionamento do sistema)
 ![Estrutura](doc/structure.png)
 
 ### List
