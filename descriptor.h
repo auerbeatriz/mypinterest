@@ -21,5 +21,9 @@ bool imageDescriptorExists(char* hist_path);
 void saveHistogramToFile(Descriptor* descriptor, char* hist_path);
 void printhistogram(Descriptor* descriptor);
 void updateDescriptor(Descriptor* descriptor, int v);
+int* getDescriptorHistogram(Descriptor* descriptor);
+char* getDescriptorLocation(Descriptor* descriptor);
+char* getDescriptorFilePath(Descriptor* descriptor);
+void freeDescriptor(Descriptor* descriptor);
 
 #endif

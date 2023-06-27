@@ -1,3 +1,5 @@
+#include <math.h>
+
 #include "descriptor.h"
 
 struct descriptor
@@ -22,7 +24,6 @@ Descriptor* createDescriptor(char* location, char* image_path) {
 }
 
 void extractImageDescritor(Image* image, Descriptor* descriptor) {
-
     int width = getImageWidth(image);
     int height = getImageHeight(image);
     unsigned char** content = getImageContent(image);
@@ -86,4 +87,24 @@ void printhistogram(Descriptor* descriptor) {
         printf("%d ", descriptor->histogram[i]);
     }
     printf("\n");
+}
+
+int* getDescriptorHistogram(Descriptor* descriptor) {
+ return descriptor->histogram;
+}
+
+char* getDescriptorLocation(Descriptor* descriptor) {
+ return descriptor->location;
+}
+
+char* getDescriptorFilePath(Descriptor* descriptor) {
+  return descriptor->original_image_path;
+}
+
+void freeDescriptor(Descriptor* descriptor) {
+    free(descriptor->histogram);
+    free(descriptor->location);
+    free(descriptor->original_image_path);
+
+    free(descriptor);
 }

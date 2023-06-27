@@ -77,14 +77,23 @@ unsigned char** getImageContent(Image* image) {
 
 
 void printImageContent(Image* img) {
-    for(int i = 0; i < img->height; i ++) {
-        for(int j = 0; j < img->width; j ++) {
+    for(int i = 0; i < img->height; i++) {
+        for(int j = 0; j < img->width; j++) {
             printf("%u ", img->content[i][j]);
         }
-        printf("\n");
+        printf("Linha\n");
     }
 }
 
 void printImageDimenstions(Image* img) {
     printf("Dimensoes: %d %d\n", img->width, img->height);
+}
+
+void freeImage(Image* image) {
+    for (int i = 0; i < image->height; i++) {
+        free(image->content[i]);
+    }
+    free(image->content);
+    
+    free(image);
 }

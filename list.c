@@ -3,7 +3,6 @@
 
 #include "list.h"
 #include "image.h"
-#include "descriptor.h"
 
 struct list {
     ListNode* first;
@@ -99,10 +98,48 @@ void printFirstElement(List* list) {
     }
 }
 
+ListNode* getNextListNode(ListNode* p){
+    return p->next;
+}
+
+Descriptor* getDescriptorFromList(ListNode* node) {
+    if(node->type == DESCRIPTOR) {
+        return node->info;
+    }
+}
+
+ListNode* getFirstElement(List* list){
+    return list->first;
+}
+
+
 void removeFromList(List* list, void* element) {
     // to be implemented
 }
 
 bool isInList(List* list, void* element) {
     // to be implemented
+}
+
+void freeList(List* list) {
+    ListNode* p = getFirstElement(list);
+    ListNode* next;
+
+    if(list->first->type == IMAGE) {
+        while (p != NULL) {
+            next = p->next;
+            freeImage(p->info);
+            p = next;
+        }
+    }
+
+    if(list->first->type == DESCRIPTOR) {
+        while (p != NULL) {
+            next = p->next;
+            freeDescriptor(p->info);
+            p = next;
+        }
+    }
+
+    free(list);
 }

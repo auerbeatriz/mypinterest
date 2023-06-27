@@ -1,5 +1,8 @@
 #include <stdbool.h>
 
+#include "descriptor.h"
+
+
 #ifndef LIST_H
 #define LIST_H
 
@@ -56,9 +59,14 @@ void printListElements(List* list);
 bool isInList(List* list, void* element);
 
 void printFirstElement(List* list);
+Descriptor* getDescriptorFromList(ListNode* node);
+ListNode* getNextListNode(ListNode* p);
+ListNode* getFirstElement(List* list);
+void freeList(List* list);
 
 /**PRIVATE*/
 void _setFirstElementInList(List* list, ListNode* listNode);
 void printFirstElement(List* list);
+
 
 #endif
