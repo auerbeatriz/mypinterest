@@ -1,3 +1,10 @@
 biblioteca
+bloco1
+bloco2
 bloco3
+bloco5
+bloco8
+bloco9
 entrada
+quadra
+refeitorio

@@ -41,3 +41,13 @@ bool isDataPresent(char* image_path, char* hist_path, char* locality_name, char*
     fclose(file);
     return false;  // Dados não encontrados
 }
+
+void showMenu() {
+    printf("\n\n");
+    printf("╰☆╮✵٭ ✶ Ｍｙ Ｐｉｎｔｅｒｅｓｔ ✶ ٭✵╭★╯\n");
+    printf("Para rodar o programa, liste um dos comandos abaixo:\n");
+    printf("index\n");
+    printf("query [location] [image_name]\n");
+    printf("quit\n\n");
+    printf("Se estiver em dúvida do que cada comando executa, consulte a documentação.\n\n");
+}

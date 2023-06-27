@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "list.h"
-
 #ifndef IMAGE_H
 #define IMAGE_H
 
@@ -18,8 +16,6 @@ typedef struct image Image;
  * Read the content of a PGM file and return it as an Image
 */
 Image* readImage(char* fpath);
-
-void indexImageFromLocation(List* images, List* descriptors, char* location);
 
 int getImageWidth(Image* image);
 int getImageHeight(Image* image);
@@ -39,5 +35,6 @@ void printImageDimenstions(Image* img);
 /**PRIVATE FUNCTION */
 void _readImageContent(Image* image, FILE* pgm);
 Image* _initializeImage(FILE* pgm);
+void freeImage(Image* image);
 
 #endif
