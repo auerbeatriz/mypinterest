@@ -26,6 +26,7 @@ As imagens estão armazenadas dentro de `base/pgm/` e divididas por localidade. 
 [!NOTE] a estrutura de pastas foi adaptada da documentação para melhor atender à nossa implementação (e também para ser melhor da gente entender).
 
 ![Estrutura do diretório base](doc/base.png)
+![Estrutura do diretório query](doc/query.png)
 
 ## Estruturas
 
